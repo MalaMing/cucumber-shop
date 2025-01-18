@@ -1,8 +1,8 @@
 package ku.shop;
 
 public class OrderItem {
-    private int quantity;
-    private Product prod;
+    private final int quantity;
+    private final Product prod;
 
     public OrderItem(Product prod, int quantity) {
         this.prod = prod;

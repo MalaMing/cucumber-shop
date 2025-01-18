@@ -1,5 +1,7 @@
 package ku.shop;
 
+import javax.naming.InsufficientResourcesException;
+
 public class Product {
     private double price;
     private String name;
@@ -11,8 +13,11 @@ public class Product {
         this.stock = stock;
     }
 
-    public void cutStock(int quantity) {
-        stock -= quantity;
+    public void cutStock(int quantity) throws InsufficientResourcesException {
+        if(stock < quantity) {
+            throw new InsufficientResourcesException("Insufficient stock");
+        }stock -= quantity;
+
     }
 
     public String getName() {
@@ -30,4 +35,6 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
+
 }
